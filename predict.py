@@ -43,10 +43,12 @@ def main(args):
         
         # 从输入读取商品标题，inp为最终的prompt
         introduction = input(f"product introduction: ")
-        inp = "This is a real product you need to generate labels:\n"+ DEFAULT_IMAGE_TOKEN + '\n' +\
-            f"its description is [{introduction}],. Please generate five labels that can represent\
-            the key features of the product based on the image information and text description.\
-            The labels should be summarized in short phrases, without points, and each label should be one line."
+        inp = DEFAULT_IMAGE_TOKEN + '\n' +\
+            f"这是购物网站上的一件商品，请你从可能购买这件商品的用户角度出发，分析用户的适用年龄，性别，身份，美观度，风格等，基于这些生成标签,每行输出一个标签"
+        # inp = "This is a real product you need to generate labels:\n"+ DEFAULT_IMAGE_TOKEN + '\n' +\
+        #     f"its description is [{introduction}],. Please generate five labels that can represent\
+        #     the key features of the product based on the image information and text description.\
+        #     The labels should be summarized in short phrases, without points, and each label should be one line."
         
         conv_mode = "llava_v0"
         if args.conv_mode is not None and conv_mode != args.conv_mode:
@@ -109,7 +111,8 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=0.2)
     parser.add_argument("--max-new-tokens", type=int, default=512)
     parser.add_argument("--load-8bit", action="store_true")
-    parser.add_argument("--load-4bit", action="store_false")
+    parser.add_argument("--load-4bit", action="store_true")
+    # parser.add_argument("--load-4bit", action="store_false")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
     main(args)
