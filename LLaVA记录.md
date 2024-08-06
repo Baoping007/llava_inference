@@ -1,3 +1,4 @@
+Epoch: 0  Recall@50: 0.0169  Recall@100: 0.0279  Recall@1000: 0.205
 Epoch: 0  Recall@50: 0.0221  Recall@100: 0.0355  Recall@1000: 0.2136
 
 模型加载时间：8.75s
